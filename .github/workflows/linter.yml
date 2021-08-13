@@ -1,0 +1,27 @@
+name: linter
+
+on:
+  push:
+    branches-ignore: [master]
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: github/super-linter@v3
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ANSIBLE: false
+          VALIDATE_GO: false
+          VALIDATE_COFFEE: false
+          VALIDATE_RUBY: false
+          VALIDATE_PYTHON: false
+          VALIDATE_PERL: false
+          VALIDATE_TYPESCRIPT_STANDARD: false
+          VALIDATE_JAVASCRIPT_STANDARD: false

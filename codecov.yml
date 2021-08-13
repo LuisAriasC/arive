@@ -1,0 +1,12 @@
+coverage:
+  status:
+    project:
+      default: off
+      api:
+        flags:
+          - api
+
+flags:
+  api:
+    paths:
+      - packages/arive-api/

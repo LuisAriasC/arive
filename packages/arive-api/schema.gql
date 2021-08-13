@@ -1,0 +1,474 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Hobby {
+  id: ID!
+  name: String!
+  passionLevel: String!
+  year: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  user: User
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type User {
+  id: ID!
+  name: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  hobbiesAggregate(
+    """Filter to find records to aggregate on"""
+    filter: HobbyAggregateFilter
+  ): UserHobbiesAggregateResponse!
+  hobbies(
+    """Limit or page results."""
+    paging: OffsetPaging = {limit: 10}
+
+    """Specify to filter the records returned."""
+    filter: HobbyFilter = {}
+
+    """Specify to sort results."""
+    sorting: [HobbySort!] = []
+  ): UserHobbiesConnection
+}
+
+input HobbyAggregateFilter {
+  and: [HobbyAggregateFilter!]
+  or: [HobbyAggregateFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+  passionLevel: StringFieldComparison
+  year: NumberFieldComparison
+  createdAt: DateFieldComparison
+  updatedAt: DateFieldComparison
+}
+
+input IDFilterComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: ID
+  neq: ID
+  gt: ID
+  gte: ID
+  lt: ID
+  lte: ID
+  like: ID
+  notLike: ID
+  iLike: ID
+  notILike: ID
+  in: [ID!]
+  notIn: [ID!]
+}
+
+input StringFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: String
+  neq: String
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  like: String
+  notLike: String
+  iLike: String
+  notILike: String
+  in: [String!]
+  notIn: [String!]
+}
+
+input NumberFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: Float
+  neq: Float
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  in: [Float!]
+  notIn: [Float!]
+  between: NumberFieldComparisonBetween
+  notBetween: NumberFieldComparisonBetween
+}
+
+input NumberFieldComparisonBetween {
+  lower: Float!
+  upper: Float!
+}
+
+input DateFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: DateTime
+  neq: DateTime
+  gt: DateTime
+  gte: DateTime
+  lt: DateTime
+  lte: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  between: DateFieldComparisonBetween
+  notBetween: DateFieldComparisonBetween
+}
+
+input DateFieldComparisonBetween {
+  lower: DateTime!
+  upper: DateTime!
+}
+
+input OffsetPaging {
+  """Limit the number of records returned"""
+  limit: Int
+
+  """Offset to start returning records from"""
+  offset: Int
+}
+
+input HobbyFilter {
+  and: [HobbyFilter!]
+  or: [HobbyFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+  passionLevel: StringFieldComparison
+  year: NumberFieldComparison
+  createdAt: DateFieldComparison
+  updatedAt: DateFieldComparison
+}
+
+input HobbySort {
+  field: HobbySortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum HobbySortFields {
+  id
+  name
+  passionLevel
+  year
+  createdAt
+  updatedAt
+}
+
+"""Sort Directions"""
+enum SortDirection {
+  ASC
+  DESC
+}
+
+"""Sort Nulls Options"""
+enum SortNulls {
+  NULLS_FIRST
+  NULLS_LAST
+}
+
+type OffsetPageInfo {
+  """true if paging forward and there are more records."""
+  hasNextPage: Boolean
+
+  """true if paging backwards and there are more records."""
+  hasPreviousPage: Boolean
+}
+
+type HobbyConnection {
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Array of nodes."""
+  nodes: [Hobby!]!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+type HobbyCountAggregate {
+  id: Int
+  name: Int
+  passionLevel: Int
+  year: Int
+  createdAt: Int
+  updatedAt: Int
+}
+
+type HobbySumAggregate {
+  year: Float
+}
+
+type HobbyAvgAggregate {
+  year: Float
+}
+
+type HobbyMinAggregate {
+  id: ID
+  name: String
+  passionLevel: String
+  year: Float
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type HobbyMaxAggregate {
+  id: ID
+  name: String
+  passionLevel: String
+  year: Float
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type HobbyAggregateResponse {
+  count: HobbyCountAggregate
+  sum: HobbySumAggregate
+  avg: HobbyAvgAggregate
+  min: HobbyMinAggregate
+  max: HobbyMaxAggregate
+}
+
+type UserConnection {
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Array of nodes."""
+  nodes: [User!]!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+type UserCountAggregate {
+  id: Int
+  name: Int
+  createdAt: Int
+  updatedAt: Int
+}
+
+type UserMinAggregate {
+  id: ID
+  name: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type UserMaxAggregate {
+  id: ID
+  name: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type UserAggregateResponse {
+  count: UserCountAggregate
+  min: UserMinAggregate
+  max: UserMaxAggregate
+}
+
+type UserHobbiesConnection {
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Array of nodes."""
+  nodes: [Hobby!]!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+type UserHobbiesCountAggregate {
+  id: Int
+  name: Int
+  passionLevel: Int
+  year: Int
+  createdAt: Int
+  updatedAt: Int
+}
+
+type UserHobbiesSumAggregate {
+  year: Float
+}
+
+type UserHobbiesAvgAggregate {
+  year: Float
+}
+
+type UserHobbiesMinAggregate {
+  id: ID
+  name: String
+  passionLevel: String
+  year: Float
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type UserHobbiesMaxAggregate {
+  id: ID
+  name: String
+  passionLevel: String
+  year: Float
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type UserHobbiesAggregateResponse {
+  count: UserHobbiesCountAggregate
+  sum: UserHobbiesSumAggregate
+  avg: UserHobbiesAvgAggregate
+  min: UserHobbiesMinAggregate
+  max: UserHobbiesMaxAggregate
+}
+
+type Query {
+  userAggregate(
+    """Filter to find records to aggregate on"""
+    filter: UserAggregateFilter
+  ): UserAggregateResponse!
+  user(
+    """The id of the record to find."""
+    id: ID!
+  ): User
+  users(
+    """Limit or page results."""
+    paging: OffsetPaging = {limit: 10}
+
+    """Specify to filter the records returned."""
+    filter: UserFilter = {}
+
+    """Specify to sort results."""
+    sorting: [UserSort!] = []
+  ): UserConnection!
+  hobbyAggregate(
+    """Filter to find records to aggregate on"""
+    filter: HobbyAggregateFilter
+  ): HobbyAggregateResponse!
+  hobby(
+    """The id of the record to find."""
+    id: ID!
+  ): Hobby
+  hobbies(
+    """Limit or page results."""
+    paging: OffsetPaging = {limit: 10}
+
+    """Specify to filter the records returned."""
+    filter: HobbyFilter = {}
+
+    """Specify to sort results."""
+    sorting: [HobbySort!] = []
+  ): HobbyConnection!
+}
+
+input UserAggregateFilter {
+  and: [UserAggregateFilter!]
+  or: [UserAggregateFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+  createdAt: DateFieldComparison
+  updatedAt: DateFieldComparison
+}
+
+input UserFilter {
+  and: [UserFilter!]
+  or: [UserFilter!]
+  id: IDFilterComparison
+  name: StringFieldComparison
+  createdAt: DateFieldComparison
+  updatedAt: DateFieldComparison
+}
+
+input UserSort {
+  field: UserSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum UserSortFields {
+  id
+  name
+  createdAt
+  updatedAt
+}
+
+type Mutation {
+  deleteOneUser(input: DeleteOneInput!): User
+  addHobbiesToUser(input: RelationsInput!): User!
+  removeHobbiesFromUser(input: RelationsInput!): User!
+  createOneUser(input: CreateOneUserInput!): User!
+  updateOneUser(input: UpdateOneUserInput!): User!
+  setUserOnHobby(input: RelationInput!): Hobby!
+  createOneHobby(input: CreateOneHobbyInput!): Hobby!
+  updateOneHobby(input: UpdateOneHobbyInput!): Hobby!
+}
+
+input DeleteOneInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+input RelationsInput {
+  """The id of the record."""
+  id: ID!
+
+  """The ids of the relations."""
+  relationIds: [ID!]!
+}
+
+input CreateOneUserInput {
+  """The record to create"""
+  user: UserInput!
+}
+
+input UserInput {
+  name: String!
+}
+
+input UpdateOneUserInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UserUpdate!
+}
+
+input UserUpdate {
+  name: String
+}
+
+input RelationInput {
+  """The id of the record."""
+  id: ID!
+
+  """The id of relation."""
+  relationId: ID!
+}
+
+input CreateOneHobbyInput {
+  """The record to create"""
+  hobby: HobbyInput!
+}
+
+input HobbyInput {
+  name: String!
+  passionLevel: String!
+  year: Float!
+  user: ID!
+}
+
+input UpdateOneHobbyInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: HobbyUpdate!
+}
+
+input HobbyUpdate {
+  name: String
+  passionLevel: String
+  year: Float
+  user: ID
+}

@@ -1,0 +1,33 @@
+parser: "@typescript-eslint/parser"
+
+extends:
+  - plugin:@typescript-eslint/recommended
+  - prettier/@typescript-eslint
+  - plugin:prettier/recommended
+
+env:
+  browser: false
+  node: true
+  es6: true
+  jest: true
+
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: "module"
+
+plugins:
+  - eslint-plugin-prettier
+
+rules:
+  "@typescript-eslint/no-explicit-any": 0
+  "@typescript-eslint/no-namespace": 1
+  "@typescript-eslint/explicit-function-return-type": 0
+
+  object-curly-spacing: 0
+
+  no-console:
+    - error
+    - allow:
+        - warn
+        - error
+        - info

@@ -1,0 +1,7 @@
+.DS_Store
+.idea/
+.vscode/
+.github/
+node_modules/
+!config.js
+!commitlint.config.js
