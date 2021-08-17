@@ -1,1 +1,1 @@
-# Arive Challenge
+# Base template
