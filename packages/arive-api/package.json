@@ -39,7 +39,7 @@
     "compression": "1.7.4",
     "dataloader": "2.0.0",
     "flagsmith-nodejs": "1.1.0",
-    "graphql": "15.5.0",
+    "graphql": "16.2.0",
     "graphql-relay": "0.6.0",
     "graphql-subscriptions": "1.2.1",
     "helmet": "4.4.1",
