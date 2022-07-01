@@ -42,7 +42,7 @@
     "graphql": "15.5.0",
     "graphql-relay": "0.6.0",
     "graphql-subscriptions": "1.2.1",
-    "helmet": "4.4.1",
+    "helmet": "5.1.0",
     "lodash": "4.17.21",
     "mongodb": "3.6.9",
     "mongoose": "5.11.17",
